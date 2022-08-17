@@ -38,6 +38,11 @@ class App
         return new CsvLogger;
     }
 
+    /**
+     * Получить класс для маршрутизации
+     *
+     * @return RouterInterface
+     */
     public static function getRouter(): RouterInterface
     {
         return new ControllerActionRouter($_SERVER);

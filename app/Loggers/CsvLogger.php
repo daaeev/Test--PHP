@@ -6,6 +6,9 @@ use App\Loggers\Interfaces\LoggerInterface;
 
 class CsvLogger implements LoggerInterface
 {
+    /**
+     * @inheritDoc
+     */
     public function makeLog(): void
     {
         $date = date('d-j-m H:i:s');

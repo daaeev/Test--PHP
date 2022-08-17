@@ -6,6 +6,13 @@ use Exception;
 
 class AbstractController
 {
+    /**
+     * Отрендерить view-файл
+     *
+     * @param string $name
+     * @param array $vars
+     * @return void
+     */
     public function view(string $name, array $vars = [])
     {
         $view_name = __DIR__ . '/../../../views/' . $name . '.php';
