@@ -40,7 +40,7 @@ form_DOM.addEventListener('submit', function (event) {
 
     // Если ошибок нет
     if (!errors) {
-        axios.post('http://localhost:63342/test/auth.php', form_data)
+        axios.post('http://localhost:3000/site/auth', form_data)
             .then(() => {
                 document.querySelector('#auth-form').classList.add('d-none');
                 document.querySelector('#auth-success').classList.remove('d-none');
@@ -48,8 +48,12 @@ form_DOM.addEventListener('submit', function (event) {
             .catch(error => {
                 clearFormErrors();
 
-                for (const [field, errors] of Object.entries(error.response?.data?.errors)) {
-                    errors.forEach(error => addFormError(error));
+                const errors = error.response?.data?.errors;
+                
+                if (typeof errors === 'object') {
+                    for (const [field, errorsList] of Object.entries(errors)) {
+                        errorsList.forEach(error => addFormError(error));
+                    }
                 }
             });
     }
