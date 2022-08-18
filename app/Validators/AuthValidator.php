@@ -10,7 +10,7 @@ class AuthValidator implements ValidatorInterface
     /**
      * @inheritDoc
      */
-    public function validate(array $data): array
+    public function validate(array $data): array|false
     {
         $errors = [];
 
