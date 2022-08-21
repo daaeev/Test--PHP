@@ -1,4 +1,5 @@
 const form_DOM = document.querySelector('#auth-form');
+const api_url = 'http://localhost:3000';
 
 form_DOM.addEventListener('submit', function (event) {
     event.preventDefault();
@@ -40,7 +41,7 @@ form_DOM.addEventListener('submit', function (event) {
 
     // Если ошибок нет
     if (!errors) {
-        axios.post('http://localhost:3000/site/auth', form_data)
+        axios.post(api_url + '/site/auth', form_data)
             .then(() => {
                 document.querySelector('#auth-form').classList.add('d-none');
                 document.querySelector('#auth-success').classList.remove('d-none');
